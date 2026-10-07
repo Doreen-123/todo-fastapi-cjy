@@ -2,6 +2,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from src.api.app import helloworld
+from src.api.todo import router as todo_router
 from src.repositories.todo_repository import(init_db,) # 引入資料庫初始函式
 
 @asynccontextmanager
@@ -26,3 +27,4 @@ def health_check():
 
 
 app.include_router(helloworld)
+app.include_router(todo_router)
